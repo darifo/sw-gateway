@@ -1,0 +1,39 @@
+{
+  "name": "darifo/sw-gateway",
+  "type": "library",
+  "description": "An gateway swoole microservices framework",
+  "keywords": [
+    "swoole",
+    "framework",
+    "gateway",
+    "microservices"
+  ],
+  "homepage": "https://github.com/darifo/sw-gateway",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "darifo",
+      "email": "2248961461@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "ext-swoole": ">=4.4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Darifo\\Gateway\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\": "App/"
+    }
+  },
+  "require-dev": {
+    "swoole/ide-helper": "~4.4.7"
+  },
+  "bin": [
+    "bin/gateway"
+  ]
+}
