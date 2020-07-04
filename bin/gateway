@@ -1,18 +1,25 @@
 #!/usr/bin/env php
 <?php
 
+use Darifo\Gateway\Core;
 
 defined('IN_PHAR') or define('IN_PHAR', boolval(\Phar::running(false)));
 defined('RUNNING_ROOT') or define('RUNNING_ROOT', realpath(getcwd()));
 defined('GATEWAY_ROOT') or define('GATEWAY_ROOT', IN_PHAR ? \Phar::running() : realpath(getcwd()));
 
 
-$args = $argv;
+$file = GATEWAY_ROOT . '/vendor/autoload.php';
+if (file_exists($file)) {
+    require $file;
+} else {
+    die("include composer autoload.php fail\n");
+}
 
+$args = $argv;
 
 array_shift($args);
 
-\Darifo\Gateway\Core::getInstance()->run($args);
+Core::getInstance()->run($args);
 
-echo GATEWAY_ROOT;
+echo GATEWAY_ROOT . "\n";
 
