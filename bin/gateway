@@ -1,7 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Darifo\Gateway\Core;
+use Darifo\Gateway\Command\CommandRunner;
+
 
 defined('IN_PHAR') or define('IN_PHAR', boolval(\Phar::running(false)));
 defined('RUNNING_ROOT') or define('RUNNING_ROOT', realpath(getcwd()));
@@ -19,7 +20,8 @@ $args = $argv;
 
 array_shift($args);
 
-Core::getInstance()->run($args);
+$ret = CommandRunner::getInstance()->run($args);
 
-echo GATEWAY_ROOT . "\n";
-
+if(!empty($ret)){
+    echo $ret."\n";
+}
