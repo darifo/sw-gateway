@@ -6,7 +6,7 @@ namespace Darifo\Gateway\Component;
 
 trait Singleton
 {
-    private static $instance;
+    private static Singleton $instance;
 
     static function getInstance(...$args)
     {
